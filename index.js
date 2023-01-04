@@ -6,7 +6,7 @@ const http = require('http');
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send(process.env.PORT);
+    res.send(webSocketServerPort);
 });
 
 const server = http.createServer(app);
