@@ -1,8 +1,11 @@
-const webSocketServerPort = 3001;
+const webSocketServerPort = process.env.PORT || 3001;
+const express = require('express');
 const webSocketServer = require('websocket').server;
 const http = require('http');
 
-const server = http.createServer();
+const app = express();
+
+const server = http.createServer(app);
 server.listen(webSocketServerPort);
 console.log('listening on port 3001');
 
