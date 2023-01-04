@@ -5,6 +5,10 @@ const http = require('http');
 
 const app = express();
 
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
+
 const server = http.createServer(app);
 server.listen(webSocketServerPort);
 console.log('listening on port 3001');
