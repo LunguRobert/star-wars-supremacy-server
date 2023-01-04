@@ -6,7 +6,7 @@ const http = require('http');
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send('Hello, World!');
+    res.send(process.env.PORT);
 });
 
 const server = http.createServer(app);
@@ -31,6 +31,10 @@ wsServer.on('request', function(request){
     console.log(new Date()+ ' Received a new conn from origin '+ request.origin +' . ')
 
     const connection = request.accept(null, request.origin);
+
+    connection.onopen = () => {
+        connection.send("Connection succes");
+    };
 
     clients[userID] = connection;
 
