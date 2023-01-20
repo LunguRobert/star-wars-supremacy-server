@@ -245,6 +245,14 @@ wsServer.on('request', function(request){
                             }
                     }
                         break;
+
+                    case 'your_first_turn':
+                        for(key in clients){
+                            if(key===newMessage.adress){
+                                    clients[key].sendUTF(JSON.stringify({type:'your_first_turn',isMyFirstTurn :newMessage.isMyFirstTurn}))
+                            }
+                    }
+                        break;
                     
             }
             
